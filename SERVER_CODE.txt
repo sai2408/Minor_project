@@ -1,0 +1,21 @@
+#include <ESP8266WiFi.h>
+
+
+const char *ssid = "TEST";
+const char *password = "grubychuj";
+
+
+
+void setup() {
+  
+  delay(1000);
+  Serial.begin(115200);
+  Serial.println("siema");
+  WiFi.softAP(ssid, password);
+  pinMode(2, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly
+ 
+}

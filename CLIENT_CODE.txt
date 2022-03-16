@@ -1,0 +1,51 @@
+#include <ESP8266WiFi.h>
+#include <ESP8266WiFi.h>
+#include <LiquidCrystal.h>
+int buzz = D6;
+const char *ssid = "TEST";
+const char *password = "grubychuj";
+LiquidCrystal lcd(D0,D1,D2,D3,D4,D5);//pins on mcu
+void setup() 
+{
+  
+  Serial.begin(9600);
+  pinMode(buzz,OUTPUT);
+  lcd.begin(16,2);//size of column,row
+  WiFi.mode(WIFI_STA); 
+  WiFi.disconnect();
+  Serial.print("No device found");
+  Serial.println(ssid); 
+  
+  WiFi.begin(ssid, password);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+    lcd.clear();
+    digitalWrite(buzz,LOW);
+    Serial.println("Not Connected");
+    lcd.clear();
+    lcd.setCursor(0,0);
+    lcd.print("No device connected");
+    delay(300);
+   
+  }
+  for (int i = 0;i<5;i++)
+  {
+  Serial.println("Speed Breaker Ahead");
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("Speed Breaker");
+  lcd.setCursor(0,1);
+  lcd.print("Ahead");
+  digitalWrite(buzz,HIGH);
+  delay(500);
+  digitalWrite(buzz,LOW);
+  delay(2000);
+  }
+  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  delay(1000);
+
+}
