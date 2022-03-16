@@ -1,5 +1,5 @@
 # SPEED BREAKER ACCIDENT CONTROLLER
-Hello everyone here are my Hackathon(mini_project) done on the basis of IoT Technology
+Hello everyone here are my Hackathon(mini_project) done on the basis of IoT Technology<br/>
 Hardware components :
   1.Node Mcu - 2(client and server)
   2.Buzzer
